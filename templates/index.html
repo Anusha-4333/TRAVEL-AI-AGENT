@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Travel AI Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <!-- This template mirrors the static index.html output. -->
+    {% include 'partials/content.html' %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Inline destination data rendered by Flask so images use `url_for` -->
+    <script>
+      window.travelDestinations = [
+        {% for d in destinations %}
+        {
+          id: "{{ d.id }}",
+          name: "{{ d.name }}",
+          location: "{{ d.location }}",
+          rating: {{ d.rating }},
+          image: "{{ url_for('static', filename='images/' ~ d.image) }}",
+          imageAlt: "{{ d.imageAlt }}",
+          description: "{{ d.description }}",
+          bestTime: "{{ d.bestTime }}",
+          attractions: {{ d.attractions | tojson }},
+          budget: "{{ d.budget }}",
+          duration: "{{ d.duration }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ];
+    </script>
+    <script type="text/babel" data-presets="typescript,react" src="{{ url_for('static', filename='js/destinationApp.tsx') }}"></script>
+    <script>
+      // Fallback chat binder: attaches if main.js did not bind the form.
+      (function(){
+        function safeAppend(text, who){
+          var msgs = document.getElementById('chatMessages');
+          if(!msgs) return;
+          var el = document.createElement('div');
+          el.className = 'chat-message ' + (who||'bot');
+          el.textContent = text;
+          msgs.appendChild(el);
+          msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        var chatForm = document.getElementById('chatForm');
+        if (chatForm && !chatForm.dataset.fallbackBound && !chatForm.dataset.bound){
+          chatForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            var input = document.getElementById('chatInput');
+            if(!input) return;
+            var msg = input.value.trim();
+            if(!msg) return;
+            safeAppend(msg, 'user');
+            input.value = '';
+            safeAppend('Travel AI is typing...', 'bot');
+            fetch('/api/chat', {method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({message: msg})})
+              .then(r=>r.json()).then(d=>{
+                const label = d.source === 'gemini' ? 'Travel AI (Gemini): ' : 'Travel AI: ';
+                safeAppend(label + (d.reply || 'No reply'), 'bot');
+              }).catch(()=>{
+                safeAppend('Travel AI: Chat unavailable, try again later.', 'bot');
+              });
+          });
+          chatForm.dataset.fallbackBound = '1';
+        }
+      })();
+    </script>
+  </body>
+</html>

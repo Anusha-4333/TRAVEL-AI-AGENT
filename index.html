@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel AI Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="navbar container">
+        <div class="brand">
+          <div class="logo-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 16.5L21 12l-8-3-2-5-2 5-8 3z" />
+            </svg>
+          </div>
+          <div>
+            <span class="brand-name">Travel AI Agent</span>
+          </div>
+        </div>
+        <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" id="siteNav" aria-label="Main navigation">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#plan" class="nav-link">Plan Trip</a>
+          <a href="#destinations" class="nav-link">Destinations</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#about" class="nav-link">About Us</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="navbar-actions">
+          <a href="#chat" class="button button-primary">Live Chat</a>
+          <a href="#my-trips" class="button button-secondary">My Trips</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-section" id="home">
+          <div class="hero-overlay"></div>
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">AI Travel Intelligence</span>
+              <h1>Your AI Travel Companion</h1>
+              <p class="hero-text">
+                Plan smarter. Travel better. Discover custom itineraries,
+                premium stays, and travel guidance tailored to your pace,
+                budget, and dream destinations.
+              </p>
+              <div class="hero-action-row">
+                <a href="#plan" class="button button-accent">Start Planning</a>
+                <a href="#services" class="button button-secondary">Explore Services</a>
+              </div>
+              <div class="feature-pill-grid">
+                <div class="feature-pill">
+                  <span class="pill-icon">🧠</span>
+                  <div>
+                    <h4>Smart Itinerary</h4>
+                    <p>Instantly optimized routes and activities.</p>
+                  </div>
+                </div>
+                <div class="feature-pill">
+                  <span class="pill-icon">🏨</span>
+                  <div>
+                    <h4>Best Stays</h4>
+                    <p>Handpicked hotels and resorts for every traveler.</p>
+                  </div>
+                </div>
+                <div class="feature-pill">
+                  <span class="pill-icon">💰</span>
+                  <div>
+                    <h4>Budget Friendly</h4>
+                    <p>Travel plans designed around your spending goals.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-card glass-card" id="plan">
+              <div class="card-header">
+                <div>
+                  <p class="card-title">Plan your next trip</p>
+                  <p class="card-subtitle">AI-powered travel planner</p>
+                </div>
+                <span class="badge">Fast</span>
+              </div>
+              <form class="plan-form">
+                <label>
+                  Destination
+                  <input type="text" placeholder="Bali, Indonesia" />
+                </label>
+                <label>
+                  Number of Days
+                  <input type="number" min="1" value="7" />
+                </label>
+                <label>
+                  Budget
+                  <input type="text" placeholder="$2,500" />
+                </label>
+                <button class="button button-accent" type="submit">
+                  Generate Plan
+                </button>
+              </form>
+              <div class="card-stats">
+                <div>
+                  <span>97%</span>
+                  <p>Success rate</p>
+                </div>
+                <div>
+                  <span>1.2K</span>
+                  <p>Trips planned</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section container" id="destinations">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Popular Destinations</span>
+              <h2>Discover premium hotspots</h2>
+            </div>
+            <a href="#plan" class="link-secondary">View all destinations</a>
+          </div>
+          <div class="destination-grid">
+            <article class="destination-card">
+              <img src="https://images.unsplash.com/photo-1516569425899-67b4a1a0a24a?auto=format&fit=crop&w=900&q=80" alt="Manali snow mountains" />
+              <div class="destination-content">
+                <p class="destination-label">Manali</p>
+                <p class="destination-subtitle">Himachal Pradesh, India</p>
+                <span class="rating">4.9</span>
+              </div>
+            </article>
+            <article class="destination-card">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Maldives beach resort" />
+              <div class="destination-content">
+                <p class="destination-label">Maldives</p>
+                <p class="destination-subtitle">Indian Ocean</p>
+                <span class="rating">4.8</span>
+              </div>
+            </article>
+            <article class="destination-card">
+              <img src="https://images.unsplash.com/photo-1526481280692-1a5f40f4b6d5?auto=format&fit=crop&w=900&q=80" alt="Paris Eiffel Tower" />
+              <div class="destination-content">
+                <p class="destination-label">Paris</p>
+                <p class="destination-subtitle">France</p>
+                <span class="rating">4.7</span>
+              </div>
+            </article>
+            <article class="destination-card">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80&sat=-20" alt="Bali temple nature" />
+              <div class="destination-content">
+                <p class="destination-label">Bali</p>
+                <p class="destination-subtitle">Indonesia</p>
+                <span class="rating">4.8</span>
+              </div>
+            </article>
+            <article class="destination-card">
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Dubai city skyline" />
+              <div class="destination-content">
+                <p class="destination-label">Dubai</p>
+                <p class="destination-subtitle">UAE</p>
+                <span class="rating">4.9</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-alt" id="features">
+          <div class="container">
+            <div class="section-header align-center">
+              <div>
+                <span class="eyebrow">Features</span>
+                <h2>Everything your next journey needs</h2>
+              </div>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card glass-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Powered Planning</h3>
+                <p>Automated itineraries built by intelligent travel insights.</p>
+              </article>
+              <article class="feature-card glass-card">
+                <div class="feature-icon">🛎️</div>
+                <h3>Hotel Recommendations</h3>
+                <p>Premium stays tailored to your taste, location, and budget.</p>
+              </article>
+              <article class="feature-card glass-card">
+                <div class="feature-icon">📊</div>
+                <h3>Budget Management</h3>
+                <p>Track costs, compare options, and keep spending on target.</p>
+              </article>
+              <article class="feature-card glass-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Weather Insights</h3>
+                <p>Real-time weather guidance for every destination day.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section services-section container" id="services">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Services</span>
+              <h2>Premium travel services built for modern explorers</h2>
+            </div>
+          </div>
+          <div class="service-grid">
+            <article class="service-card glass-card">
+              <div class="service-icon">✈️</div>
+              <h3>Personal Itinerary Design</h3>
+              <p>Custom daily plans with curated activities, transfers and dining.</p>
+            </article>
+            <article class="service-card glass-card">
+              <div class="service-icon">🏨</div>
+              <h3>Flight & Hotel Bundles</h3>
+              <p>Optimized booking packages for seamless travel from end to end.</p>
+            </article>
+            <article class="service-card glass-card">
+              <div class="service-icon">👥</div>
+              <h3>Group & Family Trips</h3>
+              <p>Shared journeys with collaborative planning and group savings.</p>
+            </article>
+            <article class="service-card glass-card">
+              <div class="service-icon">🛎️</div>
+              <h3>24/7 Concierge Support</h3>
+              <p>Live travel assistance, local recommendations, and booking support.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section container" id="about">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">How It Works</span>
+              <h2>Start your journey in 3 simple steps</h2>
+            </div>
+          </div>
+          <div class="process-grid">
+            <div class="process-step">
+              <span class="process-icon">1</span>
+              <h3>Choose Destination</h3>
+              <p>Pick your ideal city, beach, or mountain escape.</p>
+            </div>
+            <div class="process-connector">→</div>
+            <div class="process-step">
+              <span class="process-icon">2</span>
+              <h3>Add Details</h3>
+              <p>Share travel dates, preferences, and budget goals.</p>
+            </div>
+            <div class="process-connector">→</div>
+            <div class="process-step">
+              <span class="process-icon">3</span>
+              <h3>AI Generates Plan</h3>
+              <p>Receive a tailored trip blueprint ready to book.</p>
+            </div>
+          </div>
+        </section>
+        <section class="section contact-section container" id="contact">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Contact</span>
+              <h2>Let's build your next escape together</h2>
+            </div>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-card glass-card">
+              <h3>Reach our travel experts</h3>
+              <p>Send us a message and our AI concierge will respond instantly.</p>
+              <form class="contact-form">
+                <label>Name<input type="text" placeholder="Your name" /></label>
+                <label>Email<input type="email" placeholder="you@example.com" /></label>
+                <label>Message<textarea rows="4" placeholder="Tell us where you want to go"></textarea></label>
+                <button class="button button-accent" type="button">Send Message</button>
+              </form>
+            </div>
+            <div class="map-card glass-card">
+              <h3>Live planning map</h3>
+              <p>View locations in real-time while you tailor your itinerary.</p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31518.560389427874!2d18.4070107!3d-33.9258405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc68f96cd5b4c1%3A0x5f6d3b4122253d36!2sCape%20Town!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="chat-widget" id="chat">
+        <button class="chat-fab" id="chatToggle">💬</button>
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-panel-header">
+              <div>
+                <p>Travel AI Chat</p>
+                <span>Ask anything about your trip</span>
+              </div>
+              <button class="chat-close" id="chatClose">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <div class="chat-message bot">Hi there! Ready to plan your next adventure?</div>
+            </div>
+            <form class="chat-input-row" id="chatForm">
+              <input id="chatInput" type="text" placeholder="Ask about flights, hotels or destinations" />
+              <button id="sendBtn" type="submit">Send</button>
+            </form>
+          </div>
+      </div>
+
+      <footer class="footer container">
+        <div>
+          <p>Ready to travel smarter? Let Travel AI Agent design your next escape.</p>
+        </div>
+        <a href="mailto:hello@travelaiagent.com" class="link-secondary">hello@travelaiagent.com</a>
+      </footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
